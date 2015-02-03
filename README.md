@@ -81,6 +81,18 @@ If you have multiple applications or you just want to ve explicit use the applic
   client = RedboothRuby::Client.new(session)
 ```
 
+Note that your access token may expire, either due to the time specified by expires_in being reached, or the user may revoke access. You will need to get a new authorization code and access code again in such a case.
+
+```Ruby
+  session = RedboothRuby::Session.new(
+    token: '_your_user_token_',
+    refresh_token: '_your_refresh_token_'
+  )
+  new_access_token = session.refresh!
+  puts new_access_token.token # '_your_new_user_token_'
+  puts new_access_token.refresh_token # '_your_new_refresh_token_'
+```
+
 Async Endpoints
 ======
 

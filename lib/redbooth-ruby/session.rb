@@ -15,6 +15,7 @@ module RedboothRuby
 
     def initialize(opts = {})
       @token = opts[:token]
+      @refresh_token = opts[:refresh_token]
       @consumer_key = opts[:consumer_key] || RedboothRuby.configuration[:consumer_key]
       @consumer_secret = opts[:consumer_secret] || RedboothRuby.configuration[:consumer_secret]
       @oauth_verifier = opts[:oauth_verifier]
@@ -37,9 +38,12 @@ module RedboothRuby
     end
 
     def access_token
-      @access_token ||= OAuth2::AccessToken.new(client, token)
+      @access_token ||= OAuth2::AccessToken.new(client, token, { refresh_token: refresh_token })
     end
 
+    def refresh!
+      @access_token = access_token.refresh!
+    end
   end
 end
 
