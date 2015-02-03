@@ -1,0 +1,55 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://redbooth.com/oauth2/token
+    body:
+      encoding: UTF-8
+      string: client_id=_redbooth_development_&client_secret=_redbooth_development_&grant_type=refresh_token&refresh_token=_frank_refresh_token_
+    headers:
+      User-Agent:
+      - Faraday v0.9.1
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-store
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 03 Feb 2015 09:00:19 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - nginx
+      Status:
+      - 200 OK
+      Vary:
+      - Accept-Encoding
+      - Accept-Encoding
+      X-Rack-Cache:
+      - invalidate, pass
+      X-Request-Id:
+      - b2b0af2165667b59892e2b6e7489889f
+      X-Runtime:
+      - '0.067980'
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Content-Length:
+      - '185'
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: '{"access_token":"new_access_token_token","token_type":"bearer","expires_in":7200,"refresh_token":"new_refresh_token_token","scope":"all"}'
+    http_version: 
+  recorded_at: Tue, 03 Feb 2015 09:00:19 GMT
+recorded_with: VCR 2.9.3
